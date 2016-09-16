@@ -4,9 +4,9 @@ html, body {
 }
      
 body {
-  font: 80px 'Roboto Mono', monospace;
-  color: rgba(255, 255, 255, 1);
-  background-color: black;
+  font: 80px 'Special Elite', cursive;
+  color: rgba(0, 0, 0, 1);
+  background-color: white;
 }
      
 .wrapper {
@@ -22,4 +22,9 @@ body {
      
 .wrapper div {
   padding: 40px;
+}
+
+.card {
+  display: block;
+  text-align: center;
 }
