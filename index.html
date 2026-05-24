@@ -1,25 +1,228 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Fabio Dassan</title>
-  <meta name="author" content="Fabio Dassan">
-  <meta name="description" content="Personal site of Fabio Dassan">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-  <link rel="stylesheet" href="dassan.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fábio Dassan dos Santos | Technology Leadership</title>
+    
+    <!-- Importação das fontes Heebo e Ubuntu -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-main: #1e2022;
+            --text-muted: #686d76;
+            --card-bg: #ffffff;
+            --card-border: #e8eae6;
+            --card-hover: #f4f6f0;
+            --accent: #3a4736; /* Tom oliva sutil */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        /* Seletor de Idioma no Canto Superior Direito */
+        .lang-switcher {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-family: 'Heebo', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 2px 4px;
+            transition: color 0.2s;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-main);
+        }
+
+        .lang-btn.active {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .lang-divider {
+            color: var(--card-border);
+            margin: 0 4px;
+        }
+
+        .profile-container {
+            text-align: center;
+            max-width: 440px;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        h1, .subtitle, .link-item {
+            font-family: 'Heebo', sans-serif;
+        }
+
+        h1 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+        }
+
+        .links-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .link-item:hover {
+            background-color: var(--card-hover);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* Lógica de ocultação/exibição de idiomas */
+        [lang="pt"] .en-only { display: none; }
+        [lang="en"] .pt-only { display: none; }
+    </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="card">
-      <div>Fabio Dassan</div>
-      <div>
-        <a href="https://www.facebook.com/fdassan"><img style="border: 0pt none ;" title="Facebook" alt="" src="img/facebook.png" width="60" /></a>
-        <a href="https://twitter.com/dassan"><img style="border: 0pt none ;" title="Twitter" alt="" src="img/twitter.png" width="60" /></a>
-        <a href="http://instagram.com/fabio_dassan"><img style="border: 0pt none ;" title="Instagram" alt="" src="img/instagram.png" width="60" /></a>
-        <a href="mailto:fabiodassan@gmail.com" ><img style="border: 0pt none ;" title="Email" alt="" src="img/email.png" width="60" /></a>
-        <!-- icons from http://www.greatfun4kidsblog.com/2015/05/free-social-media-icons-for-your-blog.html -->
-      </div>
+
+    <!-- Alternador de Idioma -->
+    <div class="lang-switcher">
+        <button id="btn-en" class="lang-btn active" onclick="setLanguage('en')">en</button>
+        <span class="lang-divider">|</span>
+        <button id="btn-pt" class="lang-btn" onclick="setLanguage('pt')">br</button>
     </div>
-  </div>
+
+    <div class="profile-container">
+        <h1>Fábio Dassan dos Santos</h1>
+        
+        <!-- Subtítulos Traduzidos -->
+        <div class="subtitle en-only">Technology Leadership & Strategy</div>
+        <div class="subtitle pt-only">Liderança Tecnológica & Estratégia</div>
+        
+        <!-- Bios Traduzidas -->
+        <p class="bio en-only">
+            Computer Engineer focused on solution architecture, engineering management, and technical leadership development. I write about technology and management.
+        </p>
+        <p class="bio pt-only">
+            Engenheiro de Computação focado em arquitetura de soluções, gestão de engenharia e desenvolvimento de lideranças técnicas. Escrevo sobre tecnologia e gestão.
+        </p>
+
+        <!-- Grade de Links -->
+        <div class="links-grid">
+            <a href="https://www.linkedin.com/in/dassan/" target="_blank" class="link-item">LinkedIn</a>
+            
+            <a href="https://github.com/dassan" target="_blank" class="link-item">
+                <span class="en-only">GitHub Repositories</span>
+                <span class="pt-only">Repositórios no GitHub</span>
+            </a>
+            
+            <a href="https://dassan.substack.com" target="_blank" class="link-item">
+                <span class="en-only">Essays on Substack</span>
+                <span class="pt-only">Artigos no Substack</span>
+            </a>
+            
+            <a href="https://chromewebstore.google.com/detail/time-zone-organizer/cinjhlnickiiehjbhghcikpnjcajbpfh" target="_blank" class="link-item">
+                <span class="en-only">Time Zone Organizer - Chrome Extension</span>
+                <span class="pt-only">Time Zone Organizer - Extensão do Chrome</span>
+            </a>
+
+            <a href="mailto:fabiodassan@gmail.com" class="link-item">
+                <span class="en-only">Direct Contact</span>
+                <span class="pt-only">Contato Direto</span>
+            </a>
+        </div>
+
+        <footer>
+            © 2026 • São Paulo, Brazil
+        </footer>
+    </div>
+
+    <!-- Script de Alternância Dinâmica -->
+    <script>
+        function setLanguage(lang) {
+            // Atualiza o atributo lang na tag html
+            document.documentElement.setAttribute('lang', lang);
+            
+            // Gerencia as classes ativas nos botões
+            if (lang === 'pt') {
+                document.getElementById('btn-pt').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+            } else {
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-pt').classList.remove('active');
+            }
+            
+            // Salva a preferência do visitante para as próximas vezes
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        // Verifica se o usuário já visitou antes e escolheu um idioma, senão usa inglês ('en')
+        const savedLang = localStorage.getItem('preferred-lang') || 'en';
+        setLanguage(savedLang);
+    </script>
 </body>
 </html>
